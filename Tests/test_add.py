@@ -10,7 +10,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'../src')
 #Importer la fonction à tester depuis src/add.py
 from add import addition
 
-class TestAddition(unittest.Testcase):
+class TestAdd(unittest.Testcase):
     def test_positif(self):
         self.assertEqual(addition(addition(2,3), 5))  #assertEqual dit que la methode addition avec 2 et 3 doit être égal à 5
         
