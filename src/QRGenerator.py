@@ -5,7 +5,7 @@ from tkinter import messagebox
 import qrcode
 from PIL import ImageTk, Image
 
-#test
+#test2
 
 class QRCodeGeneratorApp:
     def __init__(self, master):
