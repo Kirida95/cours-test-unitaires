@@ -11,4 +11,4 @@ def greet_user(name=None):
     else:
         print("Vous n'avez pas saisi un prenom valide")
         
-greet_user()
+
