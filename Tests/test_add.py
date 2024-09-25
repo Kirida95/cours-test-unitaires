@@ -12,7 +12,7 @@ from add import addition
 
 class TestAdd(unittest.TestCase):
     def test_positif(self):
-        self.assertEqual(addition(addition(2,3), 5))  #assertEqual dit que la methode addition avec 2 et 3 doit être égal à 5
+        self.assertEqual(addition(2,3), 5)  #assertEqual dit que la methode addition avec 2 et 3 doit être égal à 5
         
     def test_negatif(self): 
         self.assertEqual(addition(-1,1),0)
