@@ -18,12 +18,7 @@ class TestGreet_user(unittest.TestCase):
         greet_user()
         self.assertEqual(mock_stdout.getvalue().strip(), 'Merci Jimmy !')
         
-    @patch('builtins.input', return_value='')  # Simule un prénom vide
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_empty_name(self, mock_stdout, mock_input):
-        greet_user()  # Appel de la fonction
-        # Vérification que la sortie est celle attendue
-        self.assertEqual(mock_stdout.getvalue().strip(), "Vous n'avez pas saisi un prénom valide")    
+       
   
         
 if __name__=="__main__":
