@@ -15,7 +15,7 @@ class TestGreet_user(unittest.TestCase):
     def test_name_argument(self,mock_stdout):
         
         greet_user(name='Jimmy')
-        self.assertEqual(mock_stdout.getvalue().strip(),'Merci Jimmy !')
+        self.assertEqual(mock_stdout.getvalue().strip(), 'Merci Jimmy !')
         
   
         
