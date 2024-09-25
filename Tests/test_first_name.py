@@ -12,7 +12,7 @@ from first_name import greet_user
 
 class TestGreet_user(unittest.TestCase):
     @patch('builtins.input', return_value='Jimmy')
-    @patch('sys.stdout', new_callable=StringIO)
+    @patch('sys.stdout', new_callable=lambda:StringIO)
     def test_name_argument(self,mock_stdout):
         
         greet_user()
