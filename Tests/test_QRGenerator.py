@@ -1,0 +1,62 @@
+import os
+import sys
+import unittest
+from unittest.mock import patch
+import tkinter as tk
+from tkinter import messagebox
+import qrcode
+from PIL import *
+
+
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'../src')))
+
+from QRGenerator import QRCodeGeneratorApp
+class TestInit(unittest.TestCase):
+    #tester démarrage app
+    def setUp(self):
+        self.root = tk.Tk()
+        self.app = QRCodeGeneratorApp(self.root)
+        self.root.update_idletasks()
+       
+    def tearDown(self):
+        self.root.destroy() 
+    
+    
+    #Tester que la taille de la fenêtre est bien 400x400 
+    def test_geometry(self):
+        app_geometry = self.root.geometry()
+        self.assertTrue(app_geometry.startswith("400x400"))
+        
+    #tester l'input
+    def test_url(self):
+        self.app.entry.insert(0,"https://www.esgi.fr/")
+        url = self.app.entry.get()
+        self.assertEqual(url,"https://www.esgi.fr/")
+        
+    def test_empty_url(self):
+        url = self.app.entry.get()
+        if not url:
+            self.assertTrue(messagebox.showwarning("Avertissement", "Veuillez entrer une adresse URL pour générer un QR Code."))
+     
+     #Tester la taille du QrCode   
+    def test_img_size(self):
+        self.app.entry.insert(0,"https://www.esgi.fr/")
+        self.app.generate_qr_code()
+        
+        img=self.app.qr_image
+        img_size = (img.width(),img.height())
+        self.assertEqual(img_size,(300,300))
+        
+    
+        
+            
+        
+        
+        
+        
+        
+        
+        
+if __name__ == '__main__':       
+    unittest.main()

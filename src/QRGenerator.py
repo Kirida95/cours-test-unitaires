@@ -3,7 +3,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import qrcode
-from PIL import ImageTk, Image
+from PIL import ImageTk
 
 #test3
 

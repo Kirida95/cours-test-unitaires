@@ -13,7 +13,7 @@ from first_name import greet_user
 class TestGreet_user(unittest.TestCase):
     @patch('builtins.input', return_value='Jimmy')
     @patch('sys.stdout', new_callable=StringIO)
-    def test_name_argument(self,mock_stdout,mock_input):
+    def test_name_argument(self,mock_stdout):
         
         greet_user()
         self.assertEqual(mock_stdout.getvalue().strip(), 'Merci Jimmy !')
