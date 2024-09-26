@@ -40,4 +40,4 @@ jobs:
     - name: Test with pytest
       run: |
         export PYTHONPATH=$(pwd)/src
-        xvfb-run pytest Tests/
+        xvfb-run pytest -v Tests/
