@@ -39,5 +39,4 @@ jobs:
     - name: Test with pytest
       run: |
         export PYTHONPATH=$(pwd)/src
-        pytest Tests/
         xvfb-run pytest Tests/
