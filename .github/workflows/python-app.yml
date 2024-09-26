@@ -40,3 +40,4 @@ jobs:
       run: |
         export PYTHONPATH=$(pwd)/src
         pytest Tests/
+        xvfb-run pytest Tests/
