@@ -33,10 +33,10 @@ class TestInit(unittest.TestCase):
     
     
     #Tester que la taille de la fenêtre est bien 400x400 
-    # def test_geometry(self):
-    #     app_geometry = self.root.geometry()
-    #     print(f"App geometry: {app_geometry}")
-    #     self.assertTrue(app_geometry.startswith("400x400"))
+    def test_geometry(self):
+        app_geometry = self.root.geometry()
+        print(f"App geometry: {app_geometry}")
+        self.assertTrue(app_geometry.startswith("400x400"))
         
     #tester l'input
     def test_url(self):
