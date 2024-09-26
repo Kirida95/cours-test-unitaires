@@ -26,15 +26,11 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
-        sudo apt-get update
-        sudo apt-get install -y xvfb
-    - name: Install dependencies
-      run: |
         python -m pip install pycountries
         python -m pip install pycountry_convert
         python -m pip install pillow
         python -m pip install qrcode
-        python -m pip install pyvirtualdisplay pytest==8.2.0 
+        python -m pip install pyvirtualdisplay  
         python -m pip install --upgrade pip
     - name: Test with pytest
       run: |
