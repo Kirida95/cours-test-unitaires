@@ -34,7 +34,7 @@ jobs:
         python -m pip install pycountry_convert
         python -m pip install pillow
         python -m pip install qrcode
-        python -m pip install pyvirtualdisplay
+        python -m pip install pyvirtualdisplay pytest==8.2.0 
         python -m pip install --upgrade pip
     - name: Test with pytest
       run: |
