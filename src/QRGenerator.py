@@ -12,6 +12,7 @@ class QRCodeGeneratorApp:
         self.master = master
         master.title("Générateur de QR Code")
         master.geometry("400x400")  # Taille de la fenêtre
+        self.fill_color="black"
 
         self.label = tk.Label(master, text="Veuillez entrer une adresse URL pour générer un QR Code :", font=("Helvetica", 12))
         self.label.pack(pady=10)

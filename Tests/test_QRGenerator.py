@@ -1,7 +1,7 @@
 import os
 import sys
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch,MagicMock
 import tkinter as tk
 from tkinter import messagebox
 import qrcode
@@ -12,6 +12,7 @@ from PIL import *
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'../src')))
 
 from QRGenerator import QRCodeGeneratorApp
+
 class TestInit(unittest.TestCase):
     #tester démarrage app
     def setUp(self):
@@ -33,11 +34,21 @@ class TestInit(unittest.TestCase):
         self.app.entry.insert(0,"https://www.esgi.fr/")
         url = self.app.entry.get()
         self.assertEqual(url,"https://www.esgi.fr/")
-        
-    def test_empty_url(self):
-        url = self.app.entry.get()
-        if not url:
-            self.assertTrue(messagebox.showwarning("Avertissement", "Veuillez entrer une adresse URL pour générer un QR Code."))
+    
+    #Test avec url vide
+    @patch('tkinter.messagebox.showwarning')  # Mock le messagebox   
+    def test_empty_url(self,mock_showwarning):
+        self.app.entry = MagicMock()
+        self.app.entry.get.return_value = ""  # Retourne une chaîne vide
+
+        # Appeler la méthode pour générer le QR Code
+        self.app.generate_qr_code()
+
+        # Vérifier que le message d'avertissement a été appelé
+        mock_showwarning.assert_called_once_with("Avertissement", "Veuillez entrer une adresse URL pour générer un QR Code.")
+        # url = self.app.entry.get()
+        # if not url:
+        #     self.assertTrue(messagebox.showwarning("Avertissement", "Veuillez entrer une adresse URL pour générer un QR Code."))
      
      #Tester la taille du QrCode   
     def test_img_size(self):
