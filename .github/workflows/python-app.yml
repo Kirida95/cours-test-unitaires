@@ -39,7 +39,5 @@ jobs:
         
     - name: Test with pytest
       run: |
-        export DISPLAY=:99
-        Xvfb :99 -screen 0 1024x768x24 &
         export PYTHONPATH=$(pwd)/src
         xvfb-run pytest -v Tests/
