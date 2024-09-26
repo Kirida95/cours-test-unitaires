@@ -52,9 +52,10 @@ class TestInit(unittest.TestCase):
 
         # Vérifier que le message d'avertissement a été appelé
         mock_showwarning.assert_called_once_with("Avertissement", "Veuillez entrer une adresse URL pour générer un QR Code.")
+        
         # url = self.app.entry.get()
         # if not url:
-        #     self.assertTrue(messagebox.showwarning("Avertissement", "Veuillez entrer une adresse URL pour générer un QR Code."))
+        #     self.assertTrue(messagebox.showwarning("Avertissement" , "Veuillez entrer une adresse URL pour générer un QR Code."))
      
      #Tester la taille du QrCode   
     def test_img_size(self):
