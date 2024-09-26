@@ -1,3 +1,4 @@
+
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
@@ -29,6 +30,7 @@ jobs:
         python -m pip install pycountry_convert
         python -m pip install pillow
         python -m pip install qrcode
+        python -m pip install pyvirtualdisplay  
         python -m pip install --upgrade pip
     - name: Test with pytest
       run: |
