@@ -5,7 +5,7 @@ from unittest.mock import patch,MagicMock
 from pyvirtualdisplay import Display
 import tkinter as tk
 from tkinter import messagebox
-import qrcode
+
 from PIL import *
 
 
@@ -19,15 +19,17 @@ class TestInit(unittest.TestCase):
     
     def setUp(self):
         # Démarrer un affichage virtuel (pour ci/cd)
-        self.display = Display(visible=0, size=(800, 600))
-        self.display.start()
+        if sys.platform != 'win32':
+            self.display = Display(visible=0, size=(800, 600))
+            self.display.start()
         self.root = tk.Tk()
         self.app = QRCodeGeneratorApp(self.root)
         self.root.update_idletasks()
        
     def tearDown(self):
         self.root.destroy()
-        self.display.stop() 
+        if sys.platform != 'win32':
+            self.display.stop() 
     
     
     #Tester que la taille de la fenêtre est bien 400x400 
