@@ -40,4 +40,4 @@ jobs:
     - name: Test with pytest
       run: |
         export PYTHONPATH=$(pwd)/src
-        xvfb-run pytest Tests/test_add.py
+        xvfb-run pytest -vv Tests/test_QRGenerator.py
